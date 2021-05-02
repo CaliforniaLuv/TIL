@@ -17,3 +17,5 @@
 
 <br></br>
 > " 그림은 일기를 쓰는 또다른 방법일 뿐이다. " - Pablo Ruiz Picasso -
+<br></br>
+<br></br>
