@@ -29,7 +29,8 @@
         cartItems: [...state.cartItems, action.payload]
       }
     }
-   ```
+     ```
+   
    
   - 디스패치 (dispatch)
    * 디스패치는 스토어의 내장함수 중 하나임. 쉽게 액션을 발생 시키는 것이라고 보면 좋음.
