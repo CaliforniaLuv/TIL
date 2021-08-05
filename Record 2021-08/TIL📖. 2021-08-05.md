@@ -1,7 +1,7 @@
 # TIL 📖 ✏️
 
    
- ### 1. node.js
+ ### 1. 
  
   - insertionSort
     * bubbleSort의 내림차순과 달리 insertionSort은 오름차순의 특징을 지님
