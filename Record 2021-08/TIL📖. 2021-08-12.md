@@ -3,7 +3,7 @@
    
  ### 1. 알고리즘
  
-  - balancedBrackets
+  - 2주차
     
   ```js
   function solution(scores) {
