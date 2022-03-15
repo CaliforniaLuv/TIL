@@ -17,6 +17,7 @@
 
 ## 3. Code
 
+## Fetch
 
 ### App.js
 ```jsx
@@ -67,5 +68,47 @@ export default function useFetch(url) {
 
     return data
 }
+
+```
+
+---
+
+## input
+
+### app.js
+
+```jsx
+function App() {
+
+  const username = useLoginFormInput('');
+  const password = useLoginFormInput('');
+  const email = useLoginFormInput('')
+
+  return(
+    <>
+      <input {...username} id="Name" type="text" placeholder="UserName"/>
+      <input {...password} id="Password" type="password" placeholder="Password"/>
+      <input onChange={email.onChange} id="Email" type="email" placeholder="Email"/>
+    </>
+  )
+}
+
+```
+
+### Custom Hook
+
+```jsx
+
+export default function useLoginFormInput(initialValue = null) {
+    const [data, setData] = useState(initialValue)
+
+    function handleChange(e) {
+        setData(e.target.value)
+        console.log(e.target.value)
+    }
+
+    return { data, onChange: handleChange }
+}
+
 
 ```
