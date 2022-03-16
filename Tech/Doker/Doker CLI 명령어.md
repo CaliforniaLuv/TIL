@@ -36,7 +36,7 @@ Doker hub에 ```pull```하여 받아온 Image를 ```run```하여 Container를 �
   docker run --name 홍길동 -p 80:8080 Image명
 ```
 
-80은 Doker의 ```Host``` 포트이고, 8080은 Container의 포트이다.
+80은 Doker의 ```Host```의 포트이고, 8080은 ```Container```의 포트이다.
 
 <br/>
 <br/>
