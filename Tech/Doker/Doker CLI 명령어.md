@@ -28,6 +28,19 @@ Doker hub에 ```pull```하여 받아온 Image를 ```run```하여 Container를 �
 <br/>
 <br/>
 
+
+## Container port 설정 후 생성
+
+
+```
+  docker run --name 홍길동 -p 80:8080 Image명
+```
+
+80은 Doker의 ```Host``` 포트이고, 8080은 Container의 포트이다.
+
+<br/>
+<br/>
+
 ## 생성된 Container 조회
 
 
