@@ -38,6 +38,14 @@ Doker hub에 ```pull```하여 받아온 Image를 ```run```하여 Container를 �
 
 80은 Doker의 ```Host```의 포트이고, 8080은 ```Container```의 포트이다.
 
+```
+CONTAINER ID   IMAGE          COMMAND              CREATED          STATUS          PORTS                          NAMES
+d1a2109a5858   httpd          "httpd-foreground"   18 seconds ago   Up 2 seconds    80/tcp, 0.0.0.0:80->8080/tcp   홍길동
+```
+
+Port를 해석하자면 0.0.0.0:80 이라는 Host port가 홍길동 Container에 접속하기를 희망한다면, 8080 port와 연결해야 한다.
+
+
 <br/>
 <br/>
 
