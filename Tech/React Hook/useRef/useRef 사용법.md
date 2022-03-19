@@ -11,6 +11,28 @@ Ref는 render 메서드에서 생성된 DOM 노드 혹은 React Element에 접�
 
 React에서는 DOM API를 마구 사용하면 디버깅, 코드 해석이 복잡해지므로 컴포넌트 제어를 ref라는 기능이 대신 수행해준다.
 
+또한 저장공간으로 활용을 자주 쓴다.
+
+
+## 1. 저장 공간
+```
+state의 변화 -> 렌더링 -> 컴포넌트 내부 변수들 재가동(값들이 변화)
+
+Ref의 변화 -> NO 렌더링 -> 컴포넌트 내부 변수들 미가동(값들이 유지)
+
+State의 변화 -> 렌더링 -> 그래도 Ref의 값은 유지됨
+
+```
+변경 시키지 말아야할 값을 저장시킬 때 유용하다.
+
+## 2. DOM 요소에 접근
+
+```
+Ref의 focus()를 활용하여 DOM에 접근한다.
+
+ex) 마우스 클릭을 하지 않고, 특정 패턴이 넘어간 후 자동으로 검색 입력창에 넘어가도록 함.
+```
+
 <br/>
 <br/>
 
@@ -23,6 +45,95 @@ ex) 부모 컴포넌트인 Page와 자식 컴포넌트인 Modal에서 Modal의 �
 <br/>
 
 # 코드 작성법
+
+
+## State과 Ref의 차이
+
+```jsx
+
+import "./styles.css";
+import { createRef, useRef, useState } from "react";
+
+// useRef는 dom을 변경할 때 사용
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  console.log("렌더링 발생");
+
+  const increaseCountState = () => {
+    setCount(count + 1);
+  };
+
+  const increaseCountRef = () => {
+    countRef.current = countRef.current + 1;
+    // console.log(countRef);
+  };
+
+  return (
+    <>
+      <p>state: {count}</p>
+      <p>Ref: {countRef.current}</p>
+      <button onClick={increaseCountState}>State 올려</button>
+      <button onClick={increaseCountRef}>Ref 올려</button>
+    </>
+  );
+}
+
+```
+
+
+## 일반 변수와 Ref의 렌더링 발생(State 변화) 시 차이
+
+```jsx
+
+import "./styles.css";
+import { createRef, useRef, useState } from "react";
+
+// useRef는 dom을 변경할 때 사용
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  let countVar = 0;
+
+  const increaseCount = () => {
+    setCount(count + 1);
+  };
+
+  const increaseCountRef = () => {
+    countRef.current = countRef.current + 1;
+    console.log("ref: ", countRef.current);
+  };
+
+  const increaseVar = () => {
+    countVar = countVar + 1;
+    console.log("Var: ", countVar);
+  };
+
+  const printResult = () => {
+    console.log(`ref: ${countRef.current}, var: ${countVar}`);
+  };
+
+  return (
+    <>
+      <p>Var: {countVar}</p>
+      <p>Ref: {countRef.current}</p>
+      <button onClick={increaseCount}>렌더 발생</button>
+      <button onClick={increaseVar}>Var 올려</button>
+      <button onClick={increaseCountRef}>Ref 올려</button>
+      <button onClick={printResult}>Ref Var 올려</button>
+    </>
+  );
+}
+
+
+
+```
+
+## DOM Style 요소 접근
 
 ```jsx
 
